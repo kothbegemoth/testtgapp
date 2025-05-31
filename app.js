@@ -4,3 +4,6 @@ tg.expand(); // Раскрыть на весь экран
 document.getElementById('myButton').addEventListener('click', () => {
     tg.showAlert('Кнопка работает! 🎉');
 });
+
+
+let a = 2
