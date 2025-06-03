@@ -34,11 +34,13 @@ function showUserInfo() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {tg.showAlert('Кнопка работает! 🎉')});
-
+document.addEventListener('DOMContentLoaded', function() {showUserInfo});
+/*
 if (window.Telegram) {
             Telegram.WebApp.ready();
             showUserInfo();
         } else {
             window.addEventListener('telegramReady', showUserInfo);
         }
+
+        */
