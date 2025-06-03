@@ -18,6 +18,6 @@ function print() {
      const user = Telegram.WebApp.initDataUnsafe.user;
   
     if (user) {
-        return user
+        console.log(user)
     }
 }
