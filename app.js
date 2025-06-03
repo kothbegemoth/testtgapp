@@ -23,9 +23,9 @@ function showUserInfo() {
                     // Показываем блок с информацией
             document.getElementById('user-info').style.display = 'block';
 
-            document.getElementById('user-progress-tests').textContent = "Пройдено х тестов из уй"
-            document.getElementById('user-progress-tasks').textContent = "Прорешено х задач из уй"
-            document.getElementById('user-progress-lections').textContent = "Прочитано х билетов из уй"
+            document.getElementById('user-progress-tests').textContent = "Пройдено х тестов из уй";
+            document.getElementById('user-progress-tasks').textContent = "Прорешено х задач из уй";
+            document.getElementById('user-progress-lections').textContent = "Прочитано х билетов из уй";
                 }
         else 
         {
