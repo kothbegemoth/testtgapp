@@ -33,14 +33,6 @@ function showUserInfo() {
         alert('Это работает только в Telegram!');
     }
 }
-/*
-document.addEventListener('DOMContentLoaded', showUserInfo);*/
 
-if (window.Telegram) {
-            Telegram.WebApp.ready();
-            setTimeout(showUserInfo(), 500);
-        } else {
-            window.addEventListener('telegramReady', showUserInfo);
-        }
-
-setTimeout(showUserProfile, 500);
+document.addEventListener('DOMContentLoaded', 
+    setTimeout(showUserInfo, 500));
