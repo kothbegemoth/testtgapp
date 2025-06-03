@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="style.css"> <!-- Подключение стилей -->
 </head>
 <body>
-    <button id="myButton">Нажми меня!</button>
+
+    <!--Профиль-->
+    <div id="user-info">
+        <img id="user-avatar" src="placeholder.jpg" alt="Аватар">
+        <h2 id="user-name"></h2>
+        <p id="user-username"></p>
+        <p id="user-id"></p>
+    </div>
+
+    <!--Нижнее меню-->
     <div class="footer">
         <button class="footer-btn">Теория</button>
         <button class="footer-btn">Тесты</button>
         <button class="footer-btn">Задачи</button>
         <button class="footer-btn" id="profileBtn">Профиль</button>
     </div>
+    
     <script src="app.js"></script> <!-- Подключение логики -->
 </body>
 </html>
