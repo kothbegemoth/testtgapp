@@ -42,3 +42,5 @@ if (window.Telegram) {
         } else {
             window.addEventListener('telegramReady', showUserInfo);
         }
+
+setTimeout(showUserProfile, 500);
