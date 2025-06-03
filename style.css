@@ -23,6 +23,10 @@ button:hover {
     background: #0077b3;
 }
 
+/*
+Меню кнопок внизу!!!
+*/
+
 .footer {
             position: fixed;
             bottom: 0;
@@ -32,7 +36,7 @@ button:hover {
             justify-content: space-around;
             padding: 10px 0;
         }
-        .footer-btn {
+.footer-btn {
             background: #444;
             color: white;
             border: none;
@@ -41,6 +45,28 @@ button:hover {
             cursor: pointer;
             transition: 0.3s;
         }
-        .footer-btn:hover {
+.footer-btn:hover {
             background: #555;
+        }
+
+/*
+Оформление страницы профиля
+*/        
+.user-profile {
+            display: none;
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        
+.user-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
