@@ -34,7 +34,7 @@ function showUserInfo() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {showUserInfo});
+document.addEventListener('DOMContentLoaded', showUserInfo);
 /*
 if (window.Telegram) {
             Telegram.WebApp.ready();
