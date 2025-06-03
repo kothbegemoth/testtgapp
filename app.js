@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', showUserInfo);*/
 
 if (window.Telegram) {
             Telegram.WebApp.ready();
-            showUserInfo();
+            setTimeout(showUserInfo(), 500);
         } else {
             window.addEventListener('telegramReady', showUserInfo);
         }
