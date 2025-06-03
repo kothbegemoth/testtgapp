@@ -34,4 +34,4 @@ function showUserInfo() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {showUserInfo();});
+document.addEventListener('DOMContentLoaded', () => {tg.showAlert('Кнопка работает! 🎉')});
