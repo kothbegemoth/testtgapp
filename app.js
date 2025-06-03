@@ -33,14 +33,12 @@ function showUserInfo() {
         alert('Это работает только в Telegram!');
     }
 }
-
-document.addEventListener('DOMContentLoaded', showUserInfo);
 /*
+document.addEventListener('DOMContentLoaded', showUserInfo);*/
+
 if (window.Telegram) {
             Telegram.WebApp.ready();
             showUserInfo();
         } else {
             window.addEventListener('telegramReady', showUserInfo);
         }
-
-        */
