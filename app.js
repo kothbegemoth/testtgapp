@@ -54,6 +54,3 @@ document.getElementById('chekAnswer').addEventListener('click', showFeedback)
 function showFeedback() {
     tg.showAlert('Тут будет проверка ответа на задачку!')
 }
-
-document.addEventListener('DOMContentLoaded', 
-    setTimeout(showUserInfo, 500));
