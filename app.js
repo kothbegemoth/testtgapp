@@ -56,5 +56,3 @@ function showFeedback() {
     tg.showAlert('Тут будет проверка ответа на задачку!');
 }
 
-document.addEventListener('DOMContentLoaded', 
-    setTimeout(newTask, 500));
