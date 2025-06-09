@@ -1,8 +1,11 @@
+
+//открываем тгминиапп
 const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрыть на весь экран
 
 document.getElementById('profileBtn').addEventListener('click', showUserInfo)
-    
+
+// показать данные пользователя
 function showUserInfo() {
             // Проверяем, что мы в Telegram WebApp
     if (window.Telegram && Telegram.WebApp) 
@@ -10,22 +13,22 @@ function showUserInfo() {
         const user = Telegram.WebApp.initDataUnsafe.user;            
         if (user) {
                     // Заполняем данные пользователя
-            document.getElementById('user-name').textContent = 
+            document.getElementById('userName').textContent = 
                         `${user.first_name} ${user.last_name || ''}`.trim();                    
-            document.getElementById('user-username').textContent = 
+            document.getElementById('userUsername').textContent = 
                         user.username ? `@${user.username}` : 'Юзернейм не указан';
-            document.getElementById('user-id').textContent = `ID: ${user.id}`;
+            document.getElementById('userId').textContent = `ID: ${user.id}`;
                     
             if (user.photo_url) 
             {
-                document.getElementById('user-avatar').src = user.photo_url;
+                document.getElementById('userAvatar').src = user.photo_url;
             }
                     // Показываем блок с информацией
-            document.getElementById('user-info').style.display = 'block';
+            document.getElementById('userInfo').style.display = 'block';
                 
-            document.getElementById('user-progress-tests').textContent = "Пройдено х тестов из уй";
-            document.getElementById('user-progress-tasks').textContent = "Прорешено х задач из уй";
-            document.getElementById('user-progress-lections').textContent = "Прочитано х билетов из уй";
+            document.getElementById('userProgressTests').textContent = "Пройдено х тестов из уй";
+            document.getElementById('userProgressTasks').textContent = "Прорешено х задач из уй";
+            document.getElementById('userProgressLections').textContent = "Прочитано х билетов из уй";
                 }
         else 
         {
