@@ -50,8 +50,11 @@ function newTask() {
     document.getElementById('currentTask').textContent="Текст задачки";
 }
 
-document.getElementById('chekAnswer').addEventListener('click', showFeedback)
+document.getElementById('checkAnswer').addEventListener('click', showFeedback)
 
 function showFeedback() {
     tg.showAlert('Тут будет проверка ответа на задачку!');
 }
+
+document.addEventListener('DOMContentLoaded', 
+    setTimeout(newTask, 500));
