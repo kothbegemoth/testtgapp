@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded',
 
 
 function newTask() {
-    document.getElementById('currentTask').textContent="Текст задачки"
+    document.getElementById('currentTask').textContent="Текст задачки";
 }
 
 document.getElementById('chekAnswer').addEventListener('click', showFeedback)
 
 function showFeedback() {
-    tg.showAlert('Тут будет проверка ответа на задачку!')
+    tg.showAlert('Тут будет проверка ответа на задачку!');
 }
