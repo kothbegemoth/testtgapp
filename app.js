@@ -31,7 +31,7 @@ function showUserInfo() {
             document.getElementById('userProgressTests').textContent = "Пройдено х тестов из уй";
             document.getElementById('userProgressTasks').textContent = "Прорешено х задач из уй";
             document.getElementById('userProgressLections').textContent = "Прочитано х билетов из уй";
-                }
+        }
         else 
         {
             alert('Данные пользователя не доступны');
