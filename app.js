@@ -3,7 +3,10 @@
 const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрыть на весь экран
 
+// кнопочки внизу
 document.getElementById('profileBtn').addEventListener('click', showUserInfo)
+document.getElementById('tasksBtn').addEventListener('click', newTask)
+
 
 // показать данные пользователя
 function showUserInfo() {
@@ -43,3 +46,14 @@ function showUserInfo() {
 
 document.addEventListener('DOMContentLoaded', 
     setTimeout(showUserInfo, 500));
+
+
+function newTask() {
+    document.getElementById('currentTask').textContent="Текст задачки"
+}
+
+document.getElementById('chekAnswer').addEventListener('click', showFeedback)
+
+function showFeedback() {
+    tg.showAlert('Тут будет проверка ответа на задачку!')
+}
