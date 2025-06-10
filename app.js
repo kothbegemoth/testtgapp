@@ -4,10 +4,16 @@ const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрыть на весь экран
 
 document.getElementById('tasksBtn').addEventListener('click', newTask)
-document.getElementById('profileBtn').addEventListener('click', () => {
-            Telegram.WebApp.showAlert('Загружаем профиль...'); // Опционально
-            window.location.href = 'index.html'; // Переход на страницу профиля
+document.addEventListener('DOMContentLoaded', () => {
+    const profileBtn = document.getElementById('profileBtn');
+    
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            Telegram.WebApp.showAlert('Загружаем профиль...');
+            window.location.href = 'index.html';
         });
+    }
+});
 
 // показать данные пользователя
 function showUserInfo() {
