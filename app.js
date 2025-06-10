@@ -42,8 +42,6 @@ function showUserInfo() {
         alert('Это работает только в Telegram!');
     }
 }
-document.addEventListener('DOMContentLoaded', 
-    setTimeout(showUserInfo, 500));
 
 
 function newTask() {
@@ -56,3 +54,7 @@ function showFeedback() {
     tg.showAlert('Тут будет проверка ответа на задачку!');
 }
 
+document.addEventListener('DOMContentLoaded', 
+    setTimeout(showUserInfo, 500));
+document.addEventListener('DOMContentLoaded', 
+    setTimeout(newTask, 500));
