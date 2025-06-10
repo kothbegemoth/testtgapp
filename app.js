@@ -54,7 +54,10 @@ function newTask() {
 document.getElementById('checkAnswer').addEventListener('click', showFeedback)
 
 function showFeedback() {
-    tg.showAlert('Тут будет проверка ответа на задачку!');
+    if (window.Telegram && Telegram.WebApp):{
+        tg.showAlert('Тут будет проверка ответа на задачку!');
+    }
+    alert('Тут будет проверка ответа на задачку!')
 }
 
 document.addEventListener('DOMContentLoaded', 
