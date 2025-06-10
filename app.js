@@ -3,13 +3,11 @@
 const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрыть на весь экран
 
-document.getElementById('profileBtn').addEventListener('click', (event) => {
-  event.preventDefault(); // Отменяем стандартное поведение
-  loadNewPageContent();   // Вручную загружаем контент
-});
-document.getElementById('profileBtn').addEventListener('click', showUserInfo)
 document.getElementById('tasksBtn').addEventListener('click', newTask)
-
+document.getElementById('profileBtn').addEventListener('click', () => {
+            Telegram.WebApp.showAlert('Загружаем профиль...'); // Опционально
+            window.location.href = 'index.html'; // Переход на страницу профиля
+        });
 
 // показать данные пользователя
 function showUserInfo() {
