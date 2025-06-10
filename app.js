@@ -3,7 +3,10 @@
 const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрыть на весь экран
 
-// кнопочки внизу
+document.getElementById('profileBtn').addEventListener('click', (event) => {
+  event.preventDefault(); // Отменяем стандартное поведение
+  loadNewPageContent();   // Вручную загружаем контент
+});
 document.getElementById('profileBtn').addEventListener('click', showUserInfo)
 document.getElementById('tasksBtn').addEventListener('click', newTask)
 
@@ -56,5 +59,3 @@ function showFeedback() {
 
 document.addEventListener('DOMContentLoaded', 
     setTimeout(showUserInfo, 500));
-document.addEventListener('DOMContentLoaded', 
-    setTimeout(newTask, 500));
