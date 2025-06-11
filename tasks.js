@@ -36,6 +36,7 @@ document.querySelector('.close').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
             // 4. Включаем кнопку обратно
     checkBtn.disabled = false;
+    document.getElementById('studentAnswer').value = '';
 });
 
 // Кнопка "Следующая задача"
@@ -48,6 +49,13 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
 //нейронка 
 
 async function askOpenAI() {
+    //берем текст задачки и реф ответа
+    const randomIndex = Math.floor(Math.random() * tasks.length);
+    const currentTask = tasks[randomIndex];
+    const questionText = currentTask.question;
+    const referenceAnswer = currentTask.reference;
+    const studentAnswer = document.getElementById('studentAnswer').value;
+
     const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
     const response = await fetch("https://api.openai.com/v1/chat/completions", 
         {
@@ -60,7 +68,7 @@ async function askOpenAI() {
               model: "gpt-3.5-turbo",
             messages: [
                 { role: "system", content: "Ты оцениваешь ответы студентов. Дай оценку от 1 до 5 и краткий комментарий." },
-                { role: "user", content: "Задача: 'Назовите столицу Франции'\nЭталон: 'Париж'\nОтвет студента: 'Марсель'" }
+                { role: "user", content: `Задача: ${questionText}\nЭталон: ${referenceAnswer}\nОтвет студента: ${studentAnswer}` }
             ]
         })
       });
