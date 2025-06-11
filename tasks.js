@@ -34,6 +34,8 @@ function showFeedback() {
 // Закрытие модалки
 document.querySelector('.close').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
+            // 4. Включаем кнопку обратно
+    checkBtn.disabled = false;
 });
 
 // Кнопка "Следующая задача"
