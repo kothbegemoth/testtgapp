@@ -45,6 +45,7 @@ document.querySelector('.close').addEventListener('click', () => {
 // Кнопка "Следующая задача"
 document.getElementById('nextTaskBtn').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
+    checkBtn.disabled = false;
     newTask();
 });
 
