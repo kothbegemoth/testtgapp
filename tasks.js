@@ -67,5 +67,4 @@ async function askOpenAI() {
 
 
 
-document.addEventListener('DOMContentLoaded', 
-    setTimeout(newTask, 500));
+document.addEventListener('DOMContentLoaded', newTask());
