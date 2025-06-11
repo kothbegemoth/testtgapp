@@ -4,7 +4,7 @@ const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрыть на весь экран
 
 document.getElementById('tasksBtn').addEventListener('click', newTask)
-document.getElementById('profileBtn').onclick = loadProfile;
+document.getElementById('profileBtn').onclick = showUserInfo;
 
 // показать данные пользователя
 function showUserInfo() {
