@@ -18,8 +18,10 @@ const feedbackText = document.getElementById('feedbackText');
 
 // Показываем модалку с проверкой
 function showFeedback() {
-    feedbackText.innerHTML = 
-    feedbackModal.style.display = 'flex';
+    askOpenAI().then(result => {
+        feedbackText.innerHTML = result;
+        feedbackModal.style.display = 'flex';
+    });
 }
 
 // Закрытие модалки
@@ -33,10 +35,6 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
     newTask();
 });
 
-// Заглушка для проверки ответа (замените на свою логику)
-function checkAnswer() {
-    return Math.random() > 0.5; // Пример: 50% шанс правильного ответа
-}
 
 //нейронка 
 
