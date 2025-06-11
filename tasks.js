@@ -9,6 +9,7 @@ function newTask() {
     }
 }
 
+/*
 //событие нажал на кнопку проверить
 document.getElementById('checkAnswer').addEventListener('click', showFeedback)
 
@@ -21,6 +22,7 @@ function showFeedback() {
         alert('Тут будет проверка ответа на задачку!')
     }
 }
+*/
 
 const feedbackModal = document.getElementById('feedbackModal');
 const feedbackText = document.getElementById('feedbackText');
