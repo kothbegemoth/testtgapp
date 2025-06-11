@@ -5,7 +5,10 @@ document.getElementById('tasksBtn').addEventListener('click', newTask)
 function newTask() {
     if (window.Telegram && Telegram.WebApp) 
     {
-        document.getElementById('currentTask').textContent="Текст задачки";
+        let  index = Math.floor(Math.random() * tasks.length);
+        document.getElementById('currentTask').dataset.index = index;
+        const currentTask = tasks[index]
+        document.getElementById('currentTask').textContent=currentTask.question;
     }
 }
 
@@ -50,8 +53,8 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
 
 async function askOpenAI() {
     //берем текст задачки и реф ответа
-    const randomIndex = Math.floor(Math.random() * tasks.length);
-    const currentTask = tasks[randomIndex];
+    const index = document.getElementById('currentTask').dataset.index;
+    const currentTask = tasks[index];
     const questionText = currentTask.question;
     const referenceAnswer = currentTask.reference;
     const studentAnswer = document.getElementById('studentAnswer').value;
@@ -68,7 +71,7 @@ async function askOpenAI() {
               model: "gpt-3.5-turbo",
             messages: [
                 { role: "system", content: "Ты оцениваешь ответы студентов. Дай оценку от 1 до 5 и краткий комментарий." },
-                { role: "user", content: `Задача: ${questionText}\nЭталон: ${referenceAnswer}\nОтвет студента: ${studentAnswer}` }
+                { role: "user", content: `Задача: ${questionText}\nЭталон ответа: ${referenceAnswer}\nОтвет студента: ${studentAnswer}` }
             ]
         })
       });
