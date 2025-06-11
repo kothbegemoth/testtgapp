@@ -37,7 +37,7 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
     newTask();
 });
-
+/*
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
     // Для Telegram WebApp
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setTimeout(newTask, 500);
 });
-
+*/
 // Заглушка для проверки ответа (замените на свою логику)
 function checkAnswer() {
     return Math.random() > 0.5; // Пример: 50% шанс правильного ответа
