@@ -1,3 +1,5 @@
+document.getElementById('profileBtn').onclick = showUserInfo;
+
 // показать данные пользователя
 function showUserInfo() {
             // Проверяем, что мы в Telegram WebApp

@@ -1,4 +1,5 @@
 
+document.getElementById('tasksBtn').addEventListener('click', newTask)
 
 function newTask() {
     document.getElementById('currentTask').textContent="Текст задачки";
