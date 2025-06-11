@@ -1,6 +1,7 @@
-
+//событие нажал на кнопку задачи
 document.getElementById('tasksBtn').addEventListener('click', newTask)
 
+//пишем текст задачки
 function newTask() {
     if (window.Telegram && Telegram.WebApp) 
     {
@@ -8,13 +9,17 @@ function newTask() {
     }
 }
 
+//событие нажал на кнопку проверить
 document.getElementById('checkAnswer').addEventListener('click', showFeedback)
 
 function showFeedback() {
     if (window.Telegram && Telegram.WebApp) {
-        tg.showAlert('Тут будет проверка ответа на задачку!');
+        tg.showAlert('Тут будет проверка ответа на задачку\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfghnfxjnsrzfjnzjnz!');
+        newTask;
     }
-    alert('Тут будет проверка ответа на задачку!')
+    else {
+        alert('Тут будет проверка ответа на задачку!')
+    }
 }
 
 document.addEventListener('DOMContentLoaded', 
