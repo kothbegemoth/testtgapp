@@ -2,7 +2,10 @@
 document.getElementById('tasksBtn').addEventListener('click', newTask)
 
 function newTask() {
-    document.getElementById('currentTask').textContent="Текст задачки";
+    if (window.Telegram && Telegram.WebApp) 
+    {
+        document.getElementById('currentTask').textContent="Текст задачки";
+    }
 }
 
 document.getElementById('checkAnswer').addEventListener('click', showFeedback)
