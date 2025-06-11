@@ -15,12 +15,19 @@ document.getElementById('checkAnswer').addEventListener('click', showFeedback)
 
 const feedbackModal = document.getElementById('feedbackModal');
 const feedbackText = document.getElementById('feedbackText');
+const checkBtn = document.getElementById('checkAnswer');
 
 // Показываем модалку с проверкой
 function showFeedback() {
+
+    // 1. Отключаем кнопку
+    checkBtn.disabled = true;
+
+    // 2. Показываем модалку сразу
+    feedbackText.innerHTML = "Проверка ответа..."; // можно показать loader
+    feedbackModal.style.display = 'flex';
     askOpenAI().then(result => {
         feedbackText.innerHTML = result;
-        feedbackModal.style.display = 'flex';
     });
 }
 
