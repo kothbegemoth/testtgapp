@@ -32,7 +32,7 @@ function showFeedback() {
     const isCorrect = checkAnswer(); // Ваша логика проверки
     
     feedbackText.innerHTML = isCorrect 
-        ? "✅ Ответ правильный!" 
+        ? "✅ Ответ правильный!".repeat(10000)
         : "❌ Попробуйте ещё раз. Подсказка: ...";
     
     feedbackModal.style.display = 'flex';
