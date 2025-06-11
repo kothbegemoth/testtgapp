@@ -12,17 +12,6 @@ function newTask() {
 
 //событие нажал на кнопку проверить
 document.getElementById('checkAnswer').addEventListener('click', showFeedback)
-/*
-function showFeedback() {
-    if (window.Telegram && Telegram.WebApp) {
-        tg.showAlert('Тут будет проверка ответа на задачку');
-        newTask;
-    }
-    else {
-        alert('Тут будет проверка ответа на задачку!')
-    }
-}
-*/
 
 const feedbackModal = document.getElementById('feedbackModal');
 const feedbackText = document.getElementById('feedbackText');
