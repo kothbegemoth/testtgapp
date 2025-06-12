@@ -5,11 +5,11 @@ document.getElementById('tasksBtn').addEventListener('click', newTask)
 function newTask() {
     if (window.Telegram && Telegram.WebApp) 
     {
-        let  index = Math.floor(Math.random() * tasks.length);
+        const index = Math.floor(Math.random() * tasks.length);
         document.getElementById('currentTask').dataset.index = index;
         const currentTask = tasks[index]
         document.getElementById('currentTask').textContent=currentTask.question;
-    }
+        console.log("newTask: "+document.getElementById('currentTask').textContent)    }
 }
 
 
@@ -39,7 +39,7 @@ document.querySelector('.close').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
             // 4. Включаем кнопку обратно
     checkBtn.disabled = false;
-    document.getElementById('studentAnswer').value = '';
+    document.getElementById('studentAnswer').value = "";
 });
 
 // Кнопка "Следующая задача"
@@ -59,7 +59,7 @@ async function askOpenAI() {
     const questionText = currentTask.question;
     const referenceAnswer = currentTask.reference;
     const studentAnswer = document.getElementById('studentAnswer').value;
-
+    console.log("askOpenAI:\nindex:"+index+"\nmessage for AI: "+`Задача: ${questionText}\nЭталон ответа: ${referenceAnswer}\nОтвет студента: ${studentAnswer}`);
     const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
     const response = await fetch("https://api.openai.com/v1/chat/completions", 
         {
