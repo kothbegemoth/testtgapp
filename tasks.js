@@ -53,11 +53,23 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
 //нейронка 
 
 async function askOpenAI() {
+    // таймаут
+    const TIMEOUT_MS = 25000;
+    let timeoutId;
+
     try {
     //подключаемся к нейронке
         const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
-        const response = await fetch("https://api.openai.com/v1/chat/completions", 
-            {
+        
+        // Создаем промис для таймаута
+        const timeoutPromise = new Promise((_, reject) => {
+            timeoutId = setTimeout(() => {
+                reject(new Error('Превышено время ожидания ответа от сервера'));
+            }, TIMEOUT_MS);
+        });
+
+        // Создаем промис для запроса к API
+        const apiPromise = fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -66,9 +78,16 @@ async function askOpenAI() {
             body: JSON.stringify({
                 model: "gpt-3.5-turbo",
                 messages: messageForAI()
-                })
-            });
-        if (!response.ok) throw new Error('Ошибка сети')
+            })
+        });
+
+        // Используем Promise.race для соревнования между запросом и таймаутом
+        const response = await Promise.race([apiPromise, timeoutPromise]);
+        
+        // Если ответ получен, отменяем таймаут
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error('Ошибка сети');
 
         const data = await response.json();
         return data.choices?.[0]?.message?.content || "Не получилось получить ответ";
@@ -95,18 +114,4 @@ function messageForAI(){
     return message
 }    
 
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', newTask());
-
-
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(newTask, 500);
-});
-
-*/
