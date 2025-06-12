@@ -1,0 +1,47 @@
+async function askOpenAI() {
+    // Устанавливаем таймаут 25 секунд (можно регулировать)
+    const TIMEOUT_MS = 25000;
+    let timeoutId;
+
+    try {
+        const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=');
+        
+        // Создаем промис для таймаута
+        const timeoutPromise = new Promise((_, reject) => {
+            timeoutId = setTimeout(() => {
+                reject(new Error('Превышено время ожидания ответа от сервера'));
+            }, TIMEOUT_MS);
+        });
+
+        // Создаем промис для запроса к API
+        const apiPromise = fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: messageForAI()
+            })
+        });
+
+        // Используем Promise.race для соревнования между запросом и таймаутом
+        const response = await Promise.race([apiPromise, timeoutPromise]);
+        
+        // Если ответ получен, отменяем таймаут
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error('Ошибка сети');
+
+        const data = await response.json();
+        return data.choices?.[0]?.message?.content || "Не получилось получить ответ";
+
+    } catch (error) {
+        // В случае ошибки также отменяем таймаут
+        if (timeoutId) clearTimeout(timeoutId);
+        
+        console.error("Ошибка:", error);
+        return `Ошибка: ${error.message}`;
+    }
+}
