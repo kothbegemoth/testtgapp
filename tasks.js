@@ -8,8 +8,7 @@ function newTask() {
         const index = Math.floor(Math.random() * tasks.length);
         document.getElementById('currentTask').dataset.index = index;
         const currentTask = tasks[index]
-        document.getElementById('currentTask').textContent=currentTask.question;
-        console.log("newTask: "+document.getElementById('currentTask').textContent)    }
+        document.getElementById('currentTask').textContent=currentTask.question;    }
 }
 
 
@@ -54,26 +53,31 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
 //нейронка 
 
 async function askOpenAI() {
-    
+    try {
     //подключаемся к нейронке
-    const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
-    const response = await fetch("https://api.openai.com/v1/chat/completions", 
-        {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-              model: "gpt-3.5-turbo",
-            messages: messageForAI()
-        })
-      });
+        const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
+        const response = await fetch("https://api.openai.com/v1/chat/completions", 
+            {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: messageForAI()
+                })
+            });
+        if (!response.ok) throw new Error('Ошибка сети')
 
-      const data = await response.json();
-      return data.choices?.[0]?.message?.content || "Ошибка";
-
+        const data = await response.json();
+        return data.choices?.[0]?.message?.content || "Не получилось получить ответ";
     }
+    catch (error){
+        console.error("Ошибка:", error)
+        return `Ошибка: ${error.message}`;
+    }
+}
 
     //сообщение для нейронки
 function messageForAI(){
