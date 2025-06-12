@@ -87,7 +87,7 @@ async function askOpenAI() {
             })
         });
 
-        window.Telegram.WebApp.showAlert()
+        window.Telegram.WebApp.showAlert(messageForAI())
         // Используем Promise.race для соревнования между запросом и таймаутом
         const response = await Promise.race([apiPromise, timeoutPromise]);
         
