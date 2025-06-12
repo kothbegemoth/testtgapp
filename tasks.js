@@ -71,7 +71,7 @@ async function askOpenAI() {
         body: JSON.stringify({
               model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: "Ты оцениваешь ответы студентов. Дай оценку от 1 до 5 и краткий комментарий." },
+                { role: "system", content: "Ты оцениваешь ответ студента. Сравни эталон ответа с ответом студента. Перечисли студенту недочеты и тд. Дай оценку от 1 до 5 и краткий комментарий. " },
                 { role: "user", content: `Задача: ${questionText}\nЭталон ответа: ${referenceAnswer}\nОтвет студента: ${studentAnswer}` }
             ]
         })
