@@ -46,6 +46,7 @@ document.querySelector('.close').addEventListener('click', () => {
 document.getElementById('nextTaskBtn').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
     checkBtn.disabled = false;
+    document.getElementById('studentAnswer').value = ""
     newTask();
 });
 
@@ -53,13 +54,8 @@ document.getElementById('nextTaskBtn').addEventListener('click', () => {
 //нейронка 
 
 async function askOpenAI() {
-    //берем текст задачки и реф ответа
-    const index = document.getElementById('currentTask').dataset.index;
-    const currentTask = tasks[index];
-    const questionText = currentTask.question;
-    const referenceAnswer = currentTask.reference;
-    const studentAnswer = document.getElementById('studentAnswer').value;
-    console.log("askOpenAI:\nindex:"+index+"\nmessage for AI: "+`Задача: ${questionText}\nЭталон ответа: ${referenceAnswer}\nОтвет студента: ${studentAnswer}`);
+    
+    //подключаемся к нейронке
     const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
     const response = await fetch("https://api.openai.com/v1/chat/completions", 
         {
@@ -70,10 +66,7 @@ async function askOpenAI() {
         },
         body: JSON.stringify({
               model: "gpt-3.5-turbo",
-            messages: [
-                { role: "system", content: "Ты оцениваешь ответ студента. Сравни эталон ответа с ответом студента. Перечисли студенту недочеты и тд. Дай оценку от 1 до 5 и краткий комментарий. " },
-                { role: "user", content: `Задача: ${questionText}\nЭталон ответа: ${referenceAnswer}\nОтвет студента: ${studentAnswer}` }
-            ]
+            messages: messageForAI()
         })
       });
 
@@ -81,6 +74,22 @@ async function askOpenAI() {
       return data.choices?.[0]?.message?.content || "Ошибка";
 
     }
+
+    //сообщение для нейронки
+function messageForAI(){
+    //берем текст задачки и реф ответа
+    const index = document.getElementById('currentTask').dataset.index;
+    const currentTask = tasks[index];
+    const questionText = currentTask.question;
+    const referenceAnswer = currentTask.reference;
+    const studentAnswer = document.getElementById('studentAnswer').value;
+
+    message = [
+                { role: "system", content: "Ты оцениваешь ответ студента. Сравни эталон ответа с ответом студента. Перечисли студенту недочеты и тд. Дай оценку от 1 до 5 и краткий комментарий. " },
+                { role: "user", content: `Задача: ${questionText}\nЭталон ответа: ${referenceAnswer}\nОтвет студента: ${studentAnswer}` }
+            ]
+    return message
+}    
 
 
 
