@@ -99,7 +99,6 @@ async function askOpenAI() {
         return data.choices?.[0]?.message?.content || "Не получилось получить ответ";
     }
     catch (error){
-        console.error("Ошибка:", error)
         return `Ошибка: ${error.message}`;
     }
 }
