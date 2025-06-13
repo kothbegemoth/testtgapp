@@ -22,10 +22,10 @@ const checkBtn = document.getElementById('checkAnswer');
 // Показываем модалку с проверкой
 function showFeedback() {
 
-    // 1. Отключаем кнопку
+    // Отключаем кнопку
     checkBtn.disabled = true;
 
-    // 2. Показываем модалку сразу
+    //Показываем модалку сразу
     feedbackText.innerHTML = "Проверка ответа..."; // можно показать loader
     feedbackModal.style.display = 'flex';
     askOpenAI().then(result => {
@@ -89,7 +89,6 @@ async function askOpenAI() {
 
         // Используем Promise.race для соревнования между запросом и таймаутом
         const response = await Promise.race([apiPromise, timeoutPromise]);
-        window.Telegram.WebApp.showAlert(messageForAI())
         
         // Если ответ получен, отменяем таймаут
         clearTimeout(timeoutId);
