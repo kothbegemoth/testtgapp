@@ -3,12 +3,10 @@ document.getElementById('tasksBtn').addEventListener('click', newTask)
 
 //пишем текст задачки
 function newTask() {
-    if (window.Telegram && Telegram.WebApp) 
-    {
         const index = Math.floor(Math.random() * tasks.length);
         document.getElementById('currentTask').dataset.index = index;
         const currentTask = tasks[index]
-        document.getElementById('currentTask').textContent=currentTask.question;    }
+        document.getElementById('currentTask').textContent=currentTask.question;
 }
 
 
