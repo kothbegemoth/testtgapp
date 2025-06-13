@@ -36,7 +36,7 @@ function showFeedback() {
 // Закрытие модалки
 document.querySelector('.close').addEventListener('click', () => {
     feedbackModal.style.display = 'none';
-            // 4. Включаем кнопку обратно
+// Включаем кнопку обратно
     checkBtn.disabled = false;
     document.getElementById('studentAnswer').value = "";
 });
@@ -56,13 +56,7 @@ async function askOpenAI() {
     // таймаут
     const TIMEOUT_MS = 25000;
     let timeoutId;
- /*
-    // проверяем инициализацию тгапп
-    if (!window.Telegram?.WebApp){
-        console.error("TgWebAPI не загружен");
-        Telegram.WebApp.ready();
-    }
-*/
+
     try {
     //подключаемся к нейронке
         const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
