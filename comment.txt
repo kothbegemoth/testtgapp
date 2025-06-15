@@ -1,0 +1,11 @@
+2025-06-13T10:36:51.569110+00:00 exclusive-sock systemd-logind[848]: Session 6590 logged out. Waiting for processes to exit.
+2025-06-13T10:36:51.569727+00:00 exclusive-sock systemd-logind[848]: Removed session 6590.
+2025-06-13T10:37:01.834715+00:00 exclusive-sock (sd-pam): pam_unix(systemd-user:session): session closed for user rina        
+2025-06-13T10:37:26.593019+00:00 exclusive-sock sshd[1992990]: Connection reset by authenticating user rina 176.115.74.118 port 57578 [preauth]
+2025-06-13T10:39:16.047216+00:00 exclusive-sock sshd[1996564]: Accepted password for rina from 176.115.74.118 port 57644 ssh2 
+2025-06-13T10:39:16.049784+00:00 exclusive-sock sshd[1996564]: pam_unix(sshd:session): session opened for user rina(uid=1001) 
+by rina(uid=0)
+2025-06-13T10:39:16.064620+00:00 exclusive-sock systemd-logind[848]: New session 6593 of user rina.
+2025-06-13T10:39:16.080741+00:00 exclusive-sock (systemd): pam_unix(systemd-user:session): session opened for user rina(uid=1001) by rina(uid=0)
+2025-06-13T10:40:59.708837+00:00 exclusive-sock sudo:     rina : TTY=pts/0 ; PWD=/home/rina ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/auth.log
+2025-06-13T10:40:59.710432+00:00 exclusive-sock sudo: pam_unix(sudo:session): session opened for user root(uid=0) by rina(uid=1001)
