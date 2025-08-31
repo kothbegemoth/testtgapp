@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Анат</title>
+    <title>Анат. Теория</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -9,19 +9,20 @@
 </head>
 <body>
 
-    <!--Профиль-->
-    <div id="userInfo" class="user-profile">
-        <div class="avatar-container">
-            <div class="avatar-circle">
-                <img id="userAvatar" class="user-avatar" src="placeholder.jpg" alt="Аватар">
-            </div>
+    <!--список тем-->
+    <div id="titliesContainer" class="theory-container">
+        <button class="title-btn"></button>        
+    </div>
+
+    <!--модальное окно-->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="image-block" id="imageBlock">
         </div>
-        <h2 id="userName"></h2>
-        <p id="userUsername"></p>
-        <p id="userId"></p>
-        <p id="userProgressTests"></p>
-        <p id="userProgressTasks"></p>
-        <p id="userProgressLections"></p>
+        <div id="ticketText"></div>
+        <button id="closeTicket" class="tg-button">Всё понятно</button>
+        </div>
     </div>
 
     <!--Нижнее меню-->
@@ -34,7 +35,8 @@
 
     <!-- Подключение логики -->
     <script src="js/app.js"></script>
-    <script src="js/profile.js"></script>
+    <script src="js/tickets/data_tickets.js"></script>
+    <script src="js/tickets/tickets.js"></script>
     
 </body>
 </html>

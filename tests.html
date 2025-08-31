@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Анат. Ситуационные задачи</title>
+    <title>Анат. Тесты</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="css/style.css"> <!-- Подключение стилей -->
 </head>
+
 <body>
 
     <!--окно чата-->
-    <div  class="task-container">
-
-    <!--текст задачки-->
-        <div class="task-description">
-            <p id="currentTask" data-index="0"></p>
-            <p id="currentClue"></p>
-            <button id="showClue" class="task-clue-btn">Показать подсказку</button>
-            <button id="showReference" class="task-reference-btn">Показать ответ</button>
+    <div  class="test-container">
+    <!--текст вопроса-->
+        <div class="test-question">
+            <p id="currentTest" data-index="0"></p>      
+        </div>
+    <!--окно ввода-->
+        <div class="answers-container">
+            <button class="answer-btn" id="0_answer" daia-index="false"></button>
+            <button class="answer-btn" id="1_answer" daia-index="false"></button>
+            <button class="answer-btn" id="2_answer" daia-index="false"></button>
+            <button class="answer-btn" id="3_answer" daia-index="false"></button>
         </div>
     </div>
 
-        <!--окно ввода-->
-    <div class="task-input">
-        <textarea type="text" class="text-input" id="studentAnswer" placeholder="Введите ответ..."></textarea>
-        <button class="task-btn" id="checkAnswer"><img class="task-btn-img" src="btn-icon.png"></button>
-    </div>
-    
     <!--модалка-->
     <div id="feedbackModal" class="modal">
         <div class="modal-content">
         <span class="close">&times;</span>
-        <h3 id="modalTitle"></h3>
-        <div id="feedbackText"></div>
-        <button id="nextTaskBtn" class="tg-button">Следующая задача</button>
+        <h3 id="testResult">Результат проверки</h3>
+        <div id="testCaption"></div>
+        <button id="nextTestBtn" class="tg-button">Продллжить</button>
         </div>
     </div>
 
@@ -46,10 +44,9 @@
     </div>
 
     <!-- Подключение логики -->
-    <script src="js/app.js"></script> 
-    <script src="js/tasks/data_tasks.js"></script>
-    <script src="js/tasks/tasks.js"></script>
-    <script src="js/tasks/ya_gpt_api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/tests/data_tests.js"></script>
+    <script src="js/tests/tests.js"></script>
     
 </body>
 </html>
