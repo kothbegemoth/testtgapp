@@ -60,7 +60,7 @@ let timeoutId;
 
 try {
 //подключаемся к нейронке
-const apiKey = atob('c2stcHJvai1ybFZJVTB3T0hhdzFGTmx6ZWpUU0FidG1xVEw2ZkZIUDN1Qkx3SzI0ZjMxc21JSnNqcmd0Ulltc1p4R1ZSRVc0a0hqdGxFUzZBSVQzQmxia0ZKTVNGZllIUFRNUEVrMnJ5bW9xREtPQ1VmVGJzaG9oRk42Q1dzZmdhWXRiZlhqWXRmRENxTEFhOEdLMVdIZG9tZlUzNTNEeTgyd0E=')
+const apiKey = atob('J3NrLTAwMDE1MzI2YjcxZjQwMGM4ZWU4YmI1NTRmZjRiNTdmJw==')
 
 // Создаем промис для таймаута
 const timeoutPromise = new Promise((_, reject) => {
